@@ -2,5 +2,5 @@ CREATE TABLE todo (
   id BIGINT NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,
   description TEXT,
   status BOOLEAN,
-  created DATE
+  created TIMESTAMP
 );

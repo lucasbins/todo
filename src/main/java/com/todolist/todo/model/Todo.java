@@ -1,6 +1,7 @@
 package com.todolist.todo.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,13 +32,14 @@ public class Todo {
   private String description;
 
   @Temporal(TemporalType.TIMESTAMP)
-  private Date created;
+  private LocalDateTime created;
 
   private boolean status;
 
   @PrePersist
   protected void onCreate() {
-    created = new Date();
+    ZoneId zoneId = ZoneId.of("America/Sao_Paulo");
+    created = LocalDateTime.now(zoneId);
   }
 
   public Todo(String description) {
